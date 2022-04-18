@@ -1,0 +1,100 @@
+Tugas 4
+
+1. 	Buatlah database permainan
+2. 	Buatlah table sepakbola
+3. 	Buatlah struktur table sepakbola sebagai berikut:
+	+---------------+--------------+------+-----+---------+----------------+
+	| Field         | Type         | Null | Key | Default | Extra          |
+	+---------------+--------------+------+-----+---------+----------------+
+	| id_pemain     | int(11)      | NO   | PRI | NULL    | auto_increment |
+	| nama_pemain   | varchar(100) | NO   |     | NULL    |                |
+	| usia_pemain   | int(2)       | NO   |     | NULL    |                |
+	| posisi_pemain | varchar(50)  | NO   |     | NULL    |                |
+	+---------------+--------------+------+-----+---------+----------------+
+
+4. 	Ubah nama tabel menjadi sepakbola_indonesia
+5. 	Hapus table sepakbola_indonesia dan database permainan
+
+
+
+
+Jawaban
+
+1. 	C:\xampp\mysql\bin>mysql -u root
+	Welcome to the MariaDB monitor.  Commands end with ; or \g.
+	Your MariaDB connection id is 167
+	Server version: 10.4.21-MariaDB mariadb.org binary distribution
+
+	Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+	MariaDB [(none)]> CREATE DATABASE permainan;
+	Query OK, 1 row affected (0.001 sec)
+
+	MariaDB [(none)]>
+
+
+
+
+2.	MariaDB [permainan]> CREATE TABLE sepakbola (
+    		-> id_pemain INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    		-> nama_pemain VARCHAR(100) NOT NULL,
+    		-> usia_pemain INT(2) NOT NULL,
+    		-> posisi_pemain VARCHAR(50) NOT NULL
+    		-> );
+	Query OK, 0 rows affected (0.070 sec)
+
+	MariaDB [permainan]> SHOW TABLES;
+	+---------------------+
+	| Tables_in_permainan |
+	+---------------------+
+	| sepakbola           |
+	+---------------------+
+	1 row in set (0.001 sec)
+
+	MariaDB [permainan]>
+
+
+
+3.	MariaDB [permainan]> DESC sepakbola;
+	+---------------+--------------+------+-----+---------+----------------+
+	| Field         | Type         | Null | Key | Default | Extra          |
+	+---------------+--------------+------+-----+---------+----------------+
+	| id_pemain     | int(11)      | NO   | PRI | NULL    | auto_increment |
+	| nama_pemain   | varchar(100) | NO   |     | NULL    |                |
+	| usia_pemain   | int(2)       | NO   |     | NULL    |                |
+	| posisi_pemain | varchar(50)  | NO   |     | NULL    |                |
+	+---------------+--------------+------+-----+---------+----------------+
+	4 rows in set (0.052 sec)
+
+	MariaDB [permainan]>
+
+
+
+
+4.	MariaDB [permainan]> ALTER TABLE sepakbola RENAME TO sepakbola_indonesia;
+	Query OK, 0 rows affected (0.029 sec)
+
+	MariaDB [permainan]> SHOW TABLES;
+	+---------------------+
+	| Tables_in_permainan |
+	+---------------------+
+	| sepakbola_indonesia |
+	+---------------------+
+	1 row in set (0.001 sec)
+
+	MariaDB [permainan]>
+
+
+
+5.	MariaDB [permainan]> DROP TABLE sepakbola_indonesia;
+	Query OK, 0 rows affected (0.050 sec)
+
+	MariaDB [permainan]> SHOW TABLES;
+	Empty set (0.001 sec)
+
+	MariaDB [permainan]> DROP DATABASE permainan;
+	Query OK, 0 rows affected (0.036 sec)
+
+	MariaDB [(none)]>
